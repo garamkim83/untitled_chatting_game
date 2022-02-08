@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import './homepage_design.dart';
+import './friendsList_design.dart';
 
 void main() {
-  runApp(const ChatGameApp());
+  runApp(
+    const ChatGameApp(),
+  );
 }
 
 class ChatGameApp extends StatelessWidget {
@@ -14,7 +17,7 @@ class ChatGameApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Untitled Chat Game',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -76,10 +79,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
+        backgroundColor: Colors.indigoAccent,
         title: Text(widget.title),
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.indigoAccent,
+        color: Colors.indigo,
         child: IconTheme(
           data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
           child: Row(
@@ -92,6 +96,11 @@ class _MyHomePageState extends State<MyHomePage> {
               IconButton(
                 tooltip: 'Open Chat List',
                 icon: const Icon(Icons.chat_outlined),
+                onPressed: () {},
+              ),
+              IconButton(
+                tooltip: 'Open Downloaded Files',
+                icon: const Icon(Icons.file_download_outlined),
                 onPressed: () {},
               ),
               IconButton(
@@ -124,16 +133,17 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Body widget',
             ),
             Text(
-              '$_counter',
+              'You\'ve clicked the button $_counter times',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.indigoAccent,
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
