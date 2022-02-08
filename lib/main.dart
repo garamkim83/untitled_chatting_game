@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import './homepage_design.dart';
+
 void main() {
   runApp(const ChatGameApp());
 }
@@ -25,7 +27,7 @@ class ChatGameApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.indigo,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Untitled Chat App Home Page'),
     );
   }
 }
@@ -75,6 +77,31 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.indigoAccent,
+        child: IconTheme(
+          data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
+          child: Row(
+            children: <Widget>[
+              IconButton(
+                tooltip: 'Open Friends List',
+                icon: const Icon(Icons.account_circle_outlined),
+                onPressed: () {},
+              ),
+              IconButton(
+                tooltip: 'Open Chat List',
+                icon: const Icon(Icons.chat_outlined),
+                onPressed: () {},
+              ),
+              IconButton(
+                tooltip: 'Open Chat List',
+                icon: const Icon(Icons.menu),
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
