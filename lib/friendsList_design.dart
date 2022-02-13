@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -22,17 +24,35 @@ class _FriendTabState extends State<FriendTab> {
 
   final _androidRefreshKey = GlobalKey<RefreshIndicatorState>();
 
+  late List<MaterialColor> colors;
+  late List<String> frinendNames;
+
   @override
   void initState() {
     _setData();
     super.initState();
   }
 
-  void _setData(){
-    colors = getRandomColors(_itemsLength)
+  void _setData() {
+    colors = getRandomColors(_itemsLength);
+    frinendNames = getRandomNames(_itemsLength);
   }
 
-  Widget _listBuilder(BuildContext context, int index){
-    if() return Container();
+  Widget _listBuilder(BuildContext context, int index) {
+    if (index >= _itemsLength) return Container();
+
+    //Show a defferent color palette depends on its operating system
+    final color = defaultTargetPlatform == TargetPlatform.iOS
+        ? colors[index]
+        : colors[index].shade400;
+
+    return SafeArea(
+      top: false,
+      bottom: false,
+      child: Hero(
+        tag: index,
+        child: HeroAnimating,
+      ),
+    );
   }
 }
