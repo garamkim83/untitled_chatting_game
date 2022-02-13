@@ -1,7 +1,9 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import './friendPage.dart';
+import 'package:untitled_chatting_game/Page/chatPage.dart';
+import 'Page/friendPage.dart';
+import './Page/chatPage.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({Key? key}) : super(key: key);
@@ -34,16 +36,42 @@ class _HomescreenState extends State<Homescreen>
             icon: Icon(Icons.search),
             onPressed: () {},
           ),
-          IconButton(
-            icon: Icon(Icons.more_vert),
-            onPressed: () {},
-          )
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              print(value);
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(
+                  child: Text('New Group'),
+                  value: 'New Group',
+                ),
+                PopupMenuItem(
+                  child: Text('New Broadcast'),
+                  value: 'New Broadcast',
+                ),
+                PopupMenuItem(
+                  child: Text('Start Messages'),
+                  value: 'Start Messages',
+                ),
+                PopupMenuItem(
+                  child: Text('Settings'),
+                  value: 'Settings',
+                ),
+                PopupMenuItem(
+                  child: Text('Help'),
+                  value: 'Help',
+                ),
+              ];
+            },
+          ),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
         color: Colors.indigo,
         child: TabBar(
           controller: _homeController,
+          indicatorColor: Colors.white,
           tabs: [
             Tab(
               icon: Icon(Icons.account_circle_outlined),
@@ -60,8 +88,8 @@ class _HomescreenState extends State<Homescreen>
       body: TabBarView(
         controller: _homeController,
         children: [
-          Text('Friends'),
-          Text('Chats'),
+          FriendPage(),
+          ChatPage(),
           Text('Downloads'),
         ],
       ),

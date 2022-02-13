@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:untitled_chatting_game/homescreen.dart';
 
 import './homepage_design.dart';
-import './friendPage.dart';
+import 'Page/friendPage.dart';
 //import './friendsList_design.dart';
 
 void main() {
@@ -29,6 +29,7 @@ class ChatGameApp extends StatelessWidget {
   }
 }
 
+//실행 안 되는 내용
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -93,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 tooltip: 'Open Friends List',
                 icon: const Icon(Icons.account_circle_outlined),
                 onPressed: () {
-                  friendPage();
+                  FriendPage();
                 },
               ),
               IconButton(

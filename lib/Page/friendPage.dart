@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:untitled_chatting_game/friendProfileCard.dart';
+import 'package:untitled_chatting_game/CustomUI/friendProfileCard.dart';
 
-import './friendProfileCard.dart';
+import '../CustomUI/friendProfileCard.dart';
 
-class friendPage extends StatefulWidget {
-  const friendPage({Key? key}) : super(key: key);
+class FriendPage extends StatefulWidget {
+  const FriendPage({Key? key}) : super(key: key);
 
   @override
-  _friendPageState createState() => _friendPageState();
+  _FriendPageState createState() => _FriendPageState();
 }
 
-class _friendPageState extends State<friendPage> {
+class _FriendPageState extends State<FriendPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

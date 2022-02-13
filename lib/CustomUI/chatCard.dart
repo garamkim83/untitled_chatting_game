@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class friendProfileCard extends StatefulWidget {
-  const friendProfileCard({Key? key}) : super(key: key);
+class ChatCard extends StatefulWidget {
+  const ChatCard({Key? key}) : super(key: key);
 
   @override
-  _friendProfileCardState createState() => _friendProfileCardState();
+  _ChatCardState createState() => _ChatCardState();
 }
 
-class _friendProfileCardState extends State<friendProfileCard> {
+class _ChatCardState extends State<ChatCard> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -28,7 +28,7 @@ class _friendProfileCardState extends State<friendProfileCard> {
             width: 3,
           ),
           Text(
-            'I\'m happy!',
+            'Hi, Nick!',
             style: TextStyle(fontSize: 13),
           )
         ],
