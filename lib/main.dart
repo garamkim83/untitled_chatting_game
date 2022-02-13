@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import './homepage_design.dart';
@@ -30,6 +31,7 @@ class ChatGameApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.indigo,
       ),
+      darkTheme: ThemeData.dark(),
       home: const MyHomePage(title: 'Untitled Chat App Home Page'),
     );
   }
@@ -65,6 +67,13 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+
+    final friendsTabKey = GlobalKey();
+/*
+    Widget _buildAndroidHomePage(BuildContext context) {
+      //return friendsTabKey
+    }
+    */
   }
 
   @override
