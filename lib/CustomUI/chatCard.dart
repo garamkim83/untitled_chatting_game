@@ -13,6 +13,12 @@ class _ChatCardState extends State<ChatCard> {
     return ListTile(
       leading: CircleAvatar(
         radius: 30,
+        child: Icon(
+          Icons.group,
+          color: Colors.white,
+          size: 38,
+        ),
+        backgroundColor: Colors.blueGrey,
       ),
       title: Text(
         'Nick',
