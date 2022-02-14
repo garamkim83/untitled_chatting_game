@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:untitled_chatting_game/Page/chatPage.dart';
 import 'Page/friendPage.dart';
