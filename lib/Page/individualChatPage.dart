@@ -20,6 +20,7 @@ class _IndividualChatPageState extends State<IndividualChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         titleSpacing: 0,
         leadingWidth: 70,
@@ -45,27 +46,30 @@ class _IndividualChatPageState extends State<IndividualChatPage> {
             ],
           ),
         ),
-        title: Container(
-          margin: EdgeInsets.all(8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start, //name
-            children: [
-              Text(
-                widget.chatModel.name,
-                style: TextStyle(
-                  fontSize: 18.5,
-                  fontWeight: FontWeight.bold,
+        title: InkWell(
+          onTap: () {},
+          child: Container(
+            margin: EdgeInsets.all(8),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start, //name
+              children: [
+                Text(
+                  widget.chatModel.name,
+                  style: TextStyle(
+                    fontSize: 18.5,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(
-                'Last seen today at 12:30',
-                style: TextStyle(
-                  fontSize: 13,
-                  color: Colors.white70,
+                Text(
+                  'Last seen today at 12:30',
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: Colors.white70,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         actions: [
@@ -77,8 +81,61 @@ class _IndividualChatPageState extends State<IndividualChatPage> {
             icon: Icon(Icons.videocam),
             onPressed: () {},
           ),
-          AppBarMenu(),
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              print(value);
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(
+                  child: Text('View Contact'),
+                  value: 'View Contact',
+                ),
+                PopupMenuItem(
+                  child: Text('Media, Links, and Docs'),
+                  value: 'Media, Links, and Docs',
+                ),
+                PopupMenuItem(
+                  child: Text('Search'),
+                  value: 'Search',
+                ),
+                PopupMenuItem(
+                  child: Text('Mute Notifications'),
+                  value: 'Mute Notifications',
+                ),
+                PopupMenuItem(
+                  child: Text('Wallpaper'),
+                  value: 'Wallpaper',
+                ),
+              ];
+            },
+          ),
         ],
+      ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
+          children: [
+            ListView(),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width - 55,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25)),
+                      child: TextFormField(),
+                    ),
+                  ),
+                  CircleAvatar(),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
