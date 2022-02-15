@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled_chatting_game/Model/chatModel.dart';
 
-import '../Page/chatPage.dart';
 import '../Model/chatModel.dart';
+import '../Page/individualChatPage.dart';
 
 class ChatCard extends StatelessWidget {
   const ChatCard({Key? key, required this.chatModel}) : super(key: key);
@@ -12,14 +11,21 @@ class ChatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       //make it clickable
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => IndividualChatPage(
+                      chatModel: chatModel,
+                    )));
+      },
       child: Column(
         children: [
           ListTile(
             leading: CircleAvatar(
               radius: 30,
               child: Icon(
-                chatModel.icon,
+                chatModel.isGroup ? Icons.group_outlined : Icons.person_outline,
                 color: Colors.white,
                 size: 38,
               ),
@@ -44,7 +50,7 @@ class ChatCard extends StatelessWidget {
                 )
               ],
             ),
-            trailing: Text('18:04'),
+            trailing: Text(chatModel.time),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 20, left: 80),

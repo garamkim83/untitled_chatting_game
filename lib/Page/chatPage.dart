@@ -15,24 +15,27 @@ class _ChatPageState extends State<ChatPage> {
   List<ChatModel> chats = [
     ChatModel(
       name: "Nick",
-      icon: Icons.person_outline,
       isGroup: false,
-      time: "6:00",
+      time: "8:00",
       currentMessage: "Hi, everyone!",
     ),
     ChatModel(
       name: "Noah",
-      icon: Icons.person_outline,
       isGroup: false,
       time: "7:00",
       currentMessage: "Hi!",
     ),
     ChatModel(
-      name: "jolly",
-      icon: Icons.person_outline,
+      name: "Jolly",
       isGroup: false,
-      time: "8:30",
+      time: "6:30",
       currentMessage: "Hello!",
+    ),
+    ChatModel(
+      name: "Family",
+      isGroup: true,
+      time: "1:30",
+      currentMessage: "Hey!",
     ),
   ];
 

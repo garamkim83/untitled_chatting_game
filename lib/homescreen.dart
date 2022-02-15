@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:untitled_chatting_game/Page/chatPage.dart';
+import 'package:untitled_chatting_game/appBarMenu.dart';
 import 'Page/friendPage.dart';
 import './Page/chatPage.dart';
 
@@ -34,35 +36,7 @@ class _HomescreenState extends State<Homescreen>
             icon: Icon(Icons.search),
             onPressed: () {},
           ),
-          PopupMenuButton<String>(
-            onSelected: (value) {
-              print(value);
-            },
-            itemBuilder: (BuildContext context) {
-              return [
-                PopupMenuItem(
-                  child: Text('New Group'),
-                  value: 'New Group',
-                ),
-                PopupMenuItem(
-                  child: Text('New Broadcast'),
-                  value: 'New Broadcast',
-                ),
-                PopupMenuItem(
-                  child: Text('Start Messages'),
-                  value: 'Start Messages',
-                ),
-                PopupMenuItem(
-                  child: Text('Settings'),
-                  value: 'Settings',
-                ),
-                PopupMenuItem(
-                  child: Text('Help'),
-                  value: 'Help',
-                ),
-              ];
-            },
-          ),
+          AppBarMenu(),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
