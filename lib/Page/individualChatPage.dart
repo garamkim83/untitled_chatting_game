@@ -125,9 +125,35 @@ class _IndividualChatPageState extends State<IndividualChatPage> {
                   Container(
                     width: MediaQuery.of(context).size.width - 55,
                     child: Card(
+                      margin: EdgeInsets.only(left: 2, right: 2, bottom: 8),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25)),
-                      child: TextFormField(),
+                      child: TextFormField(
+                        textAlignVertical: TextAlignVertical.center,
+                        keyboardType: TextInputType.multiline,
+                        maxLines: 5,
+                        minLines: 1,
+                        decoration: InputDecoration(
+                            hintText: "Type a message!",
+                            contentPadding: EdgeInsets.only(left: 15),
+                            prefixIcon: IconButton(
+                              icon: Icon(Icons.emoji_emotions),
+                              onPressed: () {},
+                            ),
+                            suffixIcon: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  icon: Icon(Icons.attach_file),
+                                  onPressed: () {},
+                                ),
+                                IconButton(
+                                  icon: Icon(Icons.camera_alt),
+                                  onPressed: () {},
+                                )
+                              ],
+                            )),
+                      ),
                     ),
                   ),
                   CircleAvatar(),
