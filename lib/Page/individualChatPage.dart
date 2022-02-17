@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:ffi';
+
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:untitled_chatting_game/Model/chatModel.dart';
-import '../CustomUI/chatCard.dart';
-import './chatPage.dart';
-import '../appBarMenu.dart';
 
 class IndividualChatPage extends StatefulWidget {
   const IndividualChatPage({Key? key, required this.chatModel})
@@ -17,6 +16,21 @@ class IndividualChatPage extends StatefulWidget {
 }
 
 class _IndividualChatPageState extends State<IndividualChatPage> {
+  bool show = false;
+  FocusNode focusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    focusNode.addListener(() {
+      if (focusNode.hasFocus) {
+        setState(() {
+          show = false;
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,48 +134,92 @@ class _IndividualChatPageState extends State<IndividualChatPage> {
             ListView(),
             Align(
               alignment: Alignment.bottomCenter,
-              child: Row(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width - 55,
-                    child: Card(
-                      margin: EdgeInsets.only(left: 2, right: 2, bottom: 8),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25)),
-                      child: TextFormField(
-                        textAlignVertical: TextAlignVertical.center,
-                        keyboardType: TextInputType.multiline,
-                        maxLines: 5,
-                        minLines: 1,
-                        decoration: InputDecoration(
-                            hintText: "Type a message!",
-                            contentPadding: EdgeInsets.only(left: 15),
-                            prefixIcon: IconButton(
-                              icon: Icon(Icons.emoji_emotions),
-                              onPressed: () {},
+                  Row(
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width - 60,
+                        child: Card(
+                          margin: EdgeInsets.only(left: 2, right: 2, bottom: 8),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25)),
+                          child: TextFormField(
+                            focusNode: focusNode,
+                            textAlignVertical: TextAlignVertical.center,
+                            keyboardType: TextInputType.multiline,
+                            maxLines: 5,
+                            minLines: 1,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Type a message!",
+                              contentPadding: EdgeInsets.only(left: 15),
+                              prefixIcon: IconButton(
+                                icon: Icon(Icons.emoji_emotions),
+                                onPressed: () {
+                                  focusNode.unfocus();
+                                  focusNode.canRequestFocus = false;
+                                  setState(() {
+                                    show = !show;
+                                  });
+                                },
+                              ),
+                              suffixIcon: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                //attach file icon and camera icon
+                                children: [
+                                  IconButton(
+                                    icon: Icon(Icons.attach_file),
+                                    onPressed: () {},
+                                  ),
+                                  IconButton(
+                                    icon: Icon(Icons.camera_alt),
+                                    onPressed: () {},
+                                  )
+                                ],
+                              ),
                             ),
-                            suffixIcon: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                IconButton(
-                                  icon: Icon(Icons.attach_file),
-                                  onPressed: () {},
-                                ),
-                                IconButton(
-                                  icon: Icon(Icons.camera_alt),
-                                  onPressed: () {},
-                                )
-                              ],
-                            )),
+                          ),
+                        ),
                       ),
-                    ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 5, right: 5, bottom: 8),
+                        child: CircleAvatar(
+                          radius: 25,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.secondary,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.mic,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {},
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                  CircleAvatar(),
+                  show ? selectEmoji() : Container(),
                 ],
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget selectEmoji() {
+    return SizedBox(
+      height: 250,
+      child: EmojiPicker(
+        config: Config(
+          columns: 7,
+        ),
+        onEmojiSelected: (Emoji, Category) {
+          print(Emoji);
+        },
       ),
     );
   }

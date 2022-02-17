@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:untitled_chatting_game/Page/chatPage.dart';
-import 'package:untitled_chatting_game/appBarMenu.dart';
+import 'package:untitled_chatting_game/ButtonAndMenu/appBarMenu.dart';
 import 'Page/friendPage.dart';
 import './Page/chatPage.dart';
 

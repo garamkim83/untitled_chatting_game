@@ -21,8 +21,11 @@ class ChatGameApp extends StatelessWidget {
     return MaterialApp(
       title: 'Untitled Chat Game',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
-      ),
+          primarySwatch: Colors.indigo,
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            primary: Colors.indigo,
+            secondary: Color.fromARGB(255, 75, 89, 168),
+          )),
       darkTheme: ThemeData.dark(),
       home: Homescreen(),
     );
@@ -81,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        backgroundColor: Colors.indigoAccent,
+        backgroundColor: Colors.indigo,
         title: Text(widget.title),
       ),
       bottomNavigationBar: BottomAppBar(
