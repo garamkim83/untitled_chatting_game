@@ -29,9 +29,9 @@ class _BottomsheetState extends State<Bottomsheet> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Iconcreation(Icons.insert_drive_file, Colors.blue, "Document"),
-                Iconcreation(Icons.camera_alt, Colors.pink, "Camera"),
-                Iconcreation(Icons.insert_photo, Colors.purple, "Gallery"),
+                Iconcreation(Icons.headset, Colors.amber, "Audio"),
+                Iconcreation(Icons.location_pin, Colors.orange, "Location"),
+                Iconcreation(Icons.person, Colors.cyan, "Gallery"),
               ],
             )
           ],
@@ -42,27 +42,33 @@ class _BottomsheetState extends State<Bottomsheet> {
 }
 
 Widget Iconcreation(IconData icon, Color color, String text) {
-  return Padding(
-    padding: EdgeInsets.all(18),
-    child: Column(
-      children: [
-        CircleAvatar(
-          radius: 28,
-          backgroundColor: color,
-          child: Icon(
-            icon,
-            size: 28,
-            color: Colors.white,
+  return InkWell(
+    onTap: () {},
+    child: SizedBox(
+      width: 90,
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 28,
+            backgroundColor: color,
+            child: Icon(
+              icon,
+              size: 28,
+              color: Colors.white,
+            ),
           ),
-        ),
-        SizedBox(
-          height: 5,
-        ),
-        Text(
-          text,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-        ),
-      ],
+          SizedBox(
+            height: 7,
+          ),
+          Text(
+            text,
+            style: TextStyle(
+              //fontWeight: FontWeight.w600,
+              fontSize: 14,
+            ),
+          ),
+        ],
+      ),
     ),
   );
 }

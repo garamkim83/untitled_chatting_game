@@ -13,6 +13,11 @@ class _friendProfileCardState extends State<friendProfileCard> {
     return ListTile(
       leading: CircleAvatar(
         radius: 30,
+        child: Icon(
+          Icons.person_outline,
+          color: Colors.white,
+          size: 38,
+        ),
         backgroundColor: Colors.blueGrey,
       ),
       title: Text(

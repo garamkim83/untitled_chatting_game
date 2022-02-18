@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:untitled_chatting_game/Model/chatModel.dart';
+import 'package:untitled_chatting_game/Themes/theme1.dart';
 import '../ButtonAndMenu/bottomsheet.dart';
 
 class IndividualChatPage extends StatefulWidget {
@@ -57,7 +58,6 @@ class _IndividualChatPageState extends State<IndividualChatPage> {
                   widget.chatModel.isGroup ? Icons.group : Icons.person_outline,
                   color: Colors.white,
                 ),
-                backgroundColor: Colors.blueGrey,
               ),
             ],
           ),

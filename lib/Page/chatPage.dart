@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled_chatting_game/Model/chatModel.dart';
+import 'package:untitled_chatting_game/Page/selectContact.dart';
 
 import '../CustomUI/chatCard.dart';
 import '../Model/chatModel.dart';
@@ -43,7 +44,10 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (builder) => SelectContact()));
+        },
         child: Icon(Icons.chat),
       ),
       body: ListView.builder(

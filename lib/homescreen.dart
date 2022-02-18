@@ -46,13 +46,22 @@ class _HomescreenState extends State<Homescreen>
           indicatorColor: Colors.white,
           tabs: [
             Tab(
-              icon: Icon(Icons.account_circle_outlined),
+              icon: Icon(
+                Icons.account_circle_outlined,
+                size: 32,
+              ),
             ),
             Tab(
-              icon: Icon(Icons.chat_outlined),
+              icon: Icon(
+                Icons.chat_outlined,
+                size: 32,
+              ),
             ),
             Tab(
-              icon: Icon(Icons.file_download_outlined),
+              icon: Icon(
+                Icons.file_download_outlined,
+                size: 32,
+              ),
             ),
           ],
         ),
