@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:untitled_chatting_game/Model/chatModel.dart';
+import '../ButtonAndMenu/bottomsheet.dart';
 
 class IndividualChatPage extends StatefulWidget {
   const IndividualChatPage({Key? key, required this.chatModel})
@@ -18,6 +19,7 @@ class IndividualChatPage extends StatefulWidget {
 class _IndividualChatPageState extends State<IndividualChatPage> {
   bool show = false;
   FocusNode focusNode = FocusNode();
+  TextEditingController _controller = TextEditingController();
 
   @override
   void initState() {
@@ -34,7 +36,7 @@ class _IndividualChatPageState extends State<IndividualChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         titleSpacing: 0,
         leadingWidth: 70,
@@ -129,82 +131,103 @@ class _IndividualChatPageState extends State<IndividualChatPage> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: Stack(
-          children: [
-            ListView(),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width - 60,
-                        child: Card(
-                          margin: EdgeInsets.only(left: 2, right: 2, bottom: 8),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25)),
-                          child: TextFormField(
-                            focusNode: focusNode,
-                            textAlignVertical: TextAlignVertical.center,
-                            keyboardType: TextInputType.multiline,
-                            maxLines: 5,
-                            minLines: 1,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "Type a message!",
-                              contentPadding: EdgeInsets.only(left: 15),
-                              prefixIcon: IconButton(
-                                icon: Icon(Icons.emoji_emotions),
-                                onPressed: () {
-                                  focusNode.unfocus();
-                                  focusNode.canRequestFocus = false;
-                                  setState(() {
-                                    show = !show;
-                                  });
-                                },
-                              ),
-                              suffixIcon: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                //attach file icon and camera icon
-                                children: [
-                                  IconButton(
-                                    icon: Icon(Icons.attach_file),
-                                    onPressed: () {},
-                                  ),
-                                  IconButton(
-                                    icon: Icon(Icons.camera_alt),
-                                    onPressed: () {},
-                                  )
-                                ],
+        child: WillPopScope(
+          child: Stack(
+            children: [
+              ListView(),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width - 60,
+                          child: Card(
+                            margin:
+                                EdgeInsets.only(left: 2, right: 2, bottom: 8),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25)),
+                            child: TextFormField(
+                              controller: _controller,
+                              focusNode: focusNode,
+                              textAlignVertical: TextAlignVertical.center,
+                              keyboardType: TextInputType.multiline,
+                              maxLines: 5,
+                              minLines: 1,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "Type a message!",
+                                contentPadding: EdgeInsets.only(left: 15),
+                                prefixIcon: IconButton(
+                                  icon: Icon(Icons.emoji_emotions),
+                                  onPressed: () {
+                                    focusNode.unfocus();
+                                    focusNode.canRequestFocus = false;
+                                    setState(() {
+                                      show = !show;
+                                    });
+                                  },
+                                ),
+                                suffixIcon: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  //attach file icon and camera icon
+                                  children: [
+                                    IconButton(
+                                      icon: Icon(Icons.attach_file),
+                                      onPressed: () {
+                                        showModalBottomSheet(
+                                            backgroundColor: Colors.transparent,
+                                            context: context,
+                                            builder: (builder) =>
+                                                Bottomsheet());
+                                      },
+                                    ),
+                                    IconButton(
+                                      icon: Icon(Icons.camera_alt),
+                                      onPressed: () {},
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 5, right: 5, bottom: 8),
-                        child: CircleAvatar(
-                          radius: 25,
-                          backgroundColor:
-                              Theme.of(context).colorScheme.secondary,
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.mic,
-                              color: Colors.white,
+                        Padding(
+                          padding:
+                              EdgeInsets.only(left: 5, right: 5, bottom: 8),
+                          child: CircleAvatar(
+                            radius: 25,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.secondary,
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.mic,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {},
                             ),
-                            onPressed: () {},
                           ),
-                        ),
-                      )
-                    ],
-                  ),
-                  show ? selectEmoji() : Container(),
-                ],
+                        )
+                      ],
+                    ),
+                    show ? selectEmoji() : Container(),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
+          onWillPop: () {
+            if (show) {
+              setState(() {
+                show = false;
+              });
+            } else {
+              Navigator.pop(context);
+            }
+            return Future.value(false);
+          },
         ),
       ),
     );
@@ -217,8 +240,11 @@ class _IndividualChatPageState extends State<IndividualChatPage> {
         config: Config(
           columns: 7,
         ),
-        onEmojiSelected: (Emoji, Category) {
-          print(Emoji);
+        onEmojiSelected: (category, emoji) {
+          print(emoji);
+          setState(() {
+            _controller.text += emoji.emoji; //텍스트 입력창에 이모티콘 추가
+          });
         },
       ),
     );

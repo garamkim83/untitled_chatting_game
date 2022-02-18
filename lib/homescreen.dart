@@ -40,7 +40,7 @@ class _HomescreenState extends State<Homescreen>
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.indigo,
+        color: Theme.of(context).colorScheme.primary,
         child: TabBar(
           controller: _homeController,
           indicatorColor: Colors.white,

@@ -29,7 +29,7 @@ class ChatCard extends StatelessWidget {
                 color: Colors.white,
                 size: 38,
               ),
-              backgroundColor: Colors.blueGrey,
+              //backgroundColor: Colors.blueGrey,
             ),
             title: Text(
               chatModel.name,

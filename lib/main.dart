@@ -5,6 +5,7 @@ import 'package:untitled_chatting_game/homescreen.dart';
 
 import './homepage_design.dart';
 import 'Page/friendPage.dart';
+import './Themes/theme1.dart';
 //import './friendsList_design.dart';
 
 void main() {
@@ -20,12 +21,7 @@ class ChatGameApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Untitled Chat Game',
-      theme: ThemeData(
-          primarySwatch: Colors.indigo,
-          colorScheme: ColorScheme.fromSwatch().copyWith(
-            primary: Colors.indigo,
-            secondary: Color.fromARGB(255, 75, 89, 168),
-          )),
+      theme: theme1(),
       darkTheme: ThemeData.dark(),
       home: Homescreen(),
     );
