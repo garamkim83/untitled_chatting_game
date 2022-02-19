@@ -6,12 +6,14 @@ class ChatModel {
   IconData? icon;
   bool isGroup;
   String time;
+  String status;
   String currentMessage;
   ChatModel({
     required this.name,
     this.icon,
     this.isGroup = false,
-    required this.time,
-    required this.currentMessage,
+    this.time = '',
+    this.status = '',
+    this.currentMessage = '',
   });
 }

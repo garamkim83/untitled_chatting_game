@@ -4,6 +4,7 @@ import 'package:untitled_chatting_game/Page/selectContact.dart';
 
 import '../CustomUI/chatCard.dart';
 import '../Model/chatModel.dart';
+import '../data/friendProfileData.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);

@@ -1,41 +1,58 @@
 import 'package:flutter/material.dart';
 
-class friendProfileCard extends StatefulWidget {
-  const friendProfileCard({Key? key}) : super(key: key);
+import 'package:untitled_chatting_game/Model/friendProfileModel.dart';
+import '../Page/individualProfilePage.dart';
 
-  @override
-  _friendProfileCardState createState() => _friendProfileCardState();
-}
+class friendProfileCard extends StatelessWidget {
+  const friendProfileCard({Key? key, required this.friendProfileModel})
+      : super(key: key);
+  final FriendProfileModel friendProfileModel;
 
-class _friendProfileCardState extends State<friendProfileCard> {
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        radius: 30,
-        child: Icon(
-          Icons.person_outline,
-          color: Colors.white,
-          size: 38,
-        ),
-        backgroundColor: Colors.blueGrey,
-      ),
-      title: Text(
-        'Nick',
-        style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      subtitle: Row(
-        children: [
-          SizedBox(
-            width: 3,
+    return InkWell(
+      //make it clickable
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => IndividualProfilePage(
+              friendProfileModel: friendProfileModel,
+            ),
           ),
-          Text(
-            'I\'m happy!',
-            style: TextStyle(fontSize: 13),
-          )
+        );
+      },
+      child: Column(
+        children: [
+          ListTile(
+            leading: CircleAvatar(
+              radius: 30,
+              child: Icon(
+                Icons.person_outline,
+                color: Colors.white,
+                size: 38,
+              ),
+              backgroundColor: Colors.blueGrey,
+            ),
+            title: Text(
+              friendProfileModel.name,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            subtitle: Row(
+              children: [
+                SizedBox(
+                  width: 3,
+                ),
+                Text(
+                  friendProfileModel.statusMessage,
+                  style: TextStyle(fontSize: 13),
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );

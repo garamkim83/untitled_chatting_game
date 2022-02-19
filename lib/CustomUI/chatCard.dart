@@ -13,11 +13,13 @@ class ChatCard extends StatelessWidget {
       //make it clickable
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => IndividualChatPage(
-                      chatModel: chatModel,
-                    )));
+          context,
+          MaterialPageRoute(
+            builder: (context) => IndividualChatPage(
+              chatModel: chatModel,
+            ),
+          ),
+        );
       },
       child: Column(
         children: [
