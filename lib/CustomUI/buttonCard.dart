@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:untitled_chatting_game/CustomUI/chatCard.dart';
-import 'package:untitled_chatting_game/Model/chatModel.dart';
-import 'package:untitled_chatting_game/Page/selectContact.dart';
 
-class ContactCard extends StatelessWidget {
-  const ContactCard({Key? key, required this.contact}) : super(key: key);
-  final ChatModel contact;
+import 'package:untitled_chatting_game/Model/chatModel.dart';
+
+class ButtonCard extends StatelessWidget {
+  const ButtonCard({Key? key, required this.name, required this.icon})
+      : super(key: key);
+  final String name;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -15,22 +16,16 @@ class ContactCard extends StatelessWidget {
         leading: CircleAvatar(
           radius: 23,
           child: Icon(
-            Icons.person_outline,
+            icon,
             color: Colors.white,
             size: 30,
           ),
         ),
         title: Text(
-          contact.name,
+          name,
           style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.bold,
-          ),
-        ),
-        subtitle: Text(
-          contact.status,
-          style: TextStyle(
-            fontSize: 13,
           ),
         ),
       ),
