@@ -8,19 +8,24 @@ class chatBubble extends StatelessWidget {
     required this.message,
     required this.time,
     required this.isMe,
+    required this.isRead,
   }) : super(key: key);
 
   final Color color;
   final Alignment alignment;
   final String message, time;
-  final isMe;
+  final isMe, isRead;
 
   @override
   Widget build(BuildContext context) {
+    final icon = isRead
+        ? Icon(Icons.done, color: Colors.white)
+        : Icon(Icons.done, color: Colors.black87);
+
     return Column(
       crossAxisAlignment:
           isMe ? CrossAxisAlignment.start : CrossAxisAlignment.end,
-      children: <Widget>[
+      children: [
         Container(
           margin: const EdgeInsets.all(3.0),
           padding: const EdgeInsets.all(8.0),
@@ -45,6 +50,15 @@ class chatBubble extends StatelessWidget {
               ),
             ],
           ),
+        ),
+        Row(
+          children: [
+            Text(time),
+            SizedBox(
+              width: 3.0,
+            ),
+            icon,
+          ],
         ),
       ],
     );
