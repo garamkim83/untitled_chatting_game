@@ -198,13 +198,14 @@ class _IndividualChatPageState extends State<IndividualChatPage> {
                           padding:
                               EdgeInsets.only(left: 5, right: 5, bottom: 8),
                           child: CircleAvatar(
-                            radius: 25,
+                            radius: 23,
                             backgroundColor:
                                 Theme.of(context).colorScheme.secondary,
                             child: IconButton(
                               icon: Icon(
-                                Icons.mic,
+                                Icons.subdirectory_arrow_left_outlined,
                                 color: Colors.white,
+                                size: 25,
                               ),
                               onPressed: () {},
                             ),
