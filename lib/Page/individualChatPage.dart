@@ -134,9 +134,11 @@ class _IndividualChatPageState extends State<IndividualChatPage> {
         child: WillPopScope(
           child: Stack(
             children: [
+              /*
               ListView.builder(
                 itemCount: 1,
                 itemBuilder: ,),
+                */
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Column(

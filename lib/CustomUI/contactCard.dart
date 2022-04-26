@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled_chatting_game/CustomUI/chatCard.dart';
 import 'package:untitled_chatting_game/Model/chatModel.dart';
-import 'package:untitled_chatting_game/Page/selectContact.dart';
 
 class ContactCard extends StatelessWidget {
   const ContactCard({Key? key, required this.contact}) : super(key: key);
