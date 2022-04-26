@@ -4,7 +4,6 @@ import 'package:untitled_chatting_game/Page/selectContact.dart';
 
 import '../CustomUI/chatCard.dart';
 import '../Model/chatModel.dart';
-import '../data/friendProfileData.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);
@@ -38,6 +37,12 @@ class _ChatPageState extends State<ChatPage> {
       isGroup: true,
       time: "1:30",
       currentMessage: "Hey!",
+    ),
+    ChatModel(
+      name: "Friends",
+      isGroup: true,
+      time: "1:10",
+      currentMessage: "Hey guys!",
     ),
   ];
 
