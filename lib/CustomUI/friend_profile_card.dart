@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:untitled_chatting_game/Model/friendProfileModel.dart';
-import '../Page/individualProfilePage.dart';
+import 'package:untitled_chatting_game/Model/friend_profile_model.dart';
+import '../Page/individual_profile_page.dart';
 
 class friendProfileCard extends StatelessWidget {
   const friendProfileCard({Key? key, required this.friendProfileModel})

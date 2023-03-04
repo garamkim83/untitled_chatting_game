@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled_chatting_game/homescreen.dart';
 
-import 'Page/friendPage.dart';
+import 'Page/friend_page.dart';
 import './Themes/theme1.dart';
 //import './friendsList_design.dart';
 

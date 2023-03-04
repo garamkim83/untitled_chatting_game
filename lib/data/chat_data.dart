@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled_chatting_game/Model/chatDataModel.dart';
+import 'package:untitled_chatting_game/Model/chat_data_model.dart';
 
 List<ChatDataModel> dummyChats = [
   ChatDataModel(

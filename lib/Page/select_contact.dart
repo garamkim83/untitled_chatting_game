@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:untitled_chatting_game/CustomUI/friendProfileCard.dart';
-import 'package:untitled_chatting_game/Model/chatModel.dart';
-import 'package:untitled_chatting_game/Model/friendProfileModel.dart';
-import '../data/friendProfileData.dart';
-import '../CustomUI/contactCard.dart';
-import '../CustomUI/buttonCard.dart';
+import 'package:untitled_chatting_game/CustomUI/friend_profile_card.dart';
+import 'package:untitled_chatting_game/Model/chat_model.dart';
+import 'package:untitled_chatting_game/Model/friend_profile_model.dart';
+import '../data/friend_profile_data.dart';
+import '../CustomUI/contact_card.dart';
+import '../CustomUI/button_card.dart';
 
 class SelectContact extends StatefulWidget {
   const SelectContact({Key? key, this.chatModel}) : super(key: key);

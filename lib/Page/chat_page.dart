@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled_chatting_game/Model/chatModel.dart';
-import 'package:untitled_chatting_game/Page/selectContact.dart';
+import 'package:untitled_chatting_game/Model/chat_model.dart';
+import 'package:untitled_chatting_game/Page/select_contact.dart';
 
-import '../CustomUI/chatCard.dart';
-import '../Model/chatModel.dart';
+import '../CustomUI/chat_card.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({Key? key}) : super(key: key);

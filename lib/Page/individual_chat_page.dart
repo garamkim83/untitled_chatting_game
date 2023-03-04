@@ -1,10 +1,11 @@
-import 'dart:ffi';
+
+//import 'dart:ffi';
 
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'package:untitled_chatting_game/Model/chatModel.dart';
+import 'package:untitled_chatting_game/Model/chat_model.dart';
 import 'package:untitled_chatting_game/Themes/theme1.dart';
 import '../ButtonAndMenu/bottomsheet.dart';
 

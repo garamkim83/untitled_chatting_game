@@ -1,5 +1,5 @@
-import '../Model/friendProfileModel.dart';
-import '../Model/chatModel.dart';
+import '../Model/friend_profile_model.dart';
+import '../Model/chat_model.dart';
 
 List<FriendProfileModel> friends = [
   FriendProfileModel(

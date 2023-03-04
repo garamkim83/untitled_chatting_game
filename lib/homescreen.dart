@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:untitled_chatting_game/Page/chatPage.dart';
-import 'package:untitled_chatting_game/ButtonAndMenu/appBarMenu.dart';
-import 'Page/friendPage.dart';
-import './Page/chatPage.dart';
+import 'package:untitled_chatting_game/Page/chat_page.dart';
+import 'package:untitled_chatting_game/ButtonAndMenu/app_bar_menu.dart';
+import 'Page/friend_page.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({Key? key}) : super(key: key);

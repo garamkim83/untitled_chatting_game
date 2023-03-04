@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:untitled_chatting_game/Model/chatModel.dart';
+import 'package:untitled_chatting_game/Model/chat_model.dart';
 
 class ButtonCard extends StatelessWidget {
   const ButtonCard({Key? key, required this.name, required this.icon})
